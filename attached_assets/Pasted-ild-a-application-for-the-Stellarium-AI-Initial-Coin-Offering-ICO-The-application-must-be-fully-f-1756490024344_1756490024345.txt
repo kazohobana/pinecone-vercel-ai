@@ -1,0 +1,140 @@
+ild a application for the Stellarium AI Initial Coin Offering (ICO). The application must be fully functional, require no external installation or local server, and run directly in any modern web browser. It should provide a seamless experience for both ICO participants and platform administrators.
+
+Core Features & User Stories
+1. User-Facing Portal:
+
+Wallet Integration:
+
+As a user, I want to connect my Web3 wallet (e.g., MetaMask, Trust Wallet) to the application with a single click.
+
+As a user, I want to see my connected wallet address displayed clearly and have the option to disconnect.
+
+ICO Dashboard:
+
+As a user, I want to view the current status of the ICO, including the active sale stage (e.g., "Presale Round 2").
+
+As a user, I want to see a visual progress bar showing how many tokens have been sold out of the total available for the current stage.
+
+As a user, I want to see the current price of one $SAI token.
+
+Token Purchase:
+
+As a user, I want to enter the amount of money (in USD) I wish to spend.
+
+As a user, the application should automatically calculate and display the number of $SAI tokens I will receive.
+
+As a user, I want to initiate the purchase, which should trigger a transaction for me to confirm in my connected wallet.
+
+As a user, I want to see real-time feedback on the transaction status (e.g., "Processing," "Success," "Failed").
+
+Personal Dashboard:
+
+As a user, I want to see my total $SAI token balance after a successful purchase.
+
+As a user, I want to view a history of my past purchase transactions.
+
+Informational Pages:
+
+As a user, I want to view a "Tokenomics" page with a chart visualizing the token distribution.
+
+As a user, I want to access a "Pioneers Hub" section that displays information about future features like staking.
+
+2. Administrator Portal:
+
+Toggle View:
+
+As an admin, I need a simple way to switch between the user view and the admin panel.
+
+Analytics Dashboard:
+
+As an admin, I want to see key metrics at a glance: total funds raised, total number of unique participants, and total tokens sold.
+
+As an admin, I want to view a chart showing the funds raised per ICO stage.
+
+Stage Management:
+
+As an admin, I want to view a list of all ICO stages with their details (name, price, token allocation).
+
+As an admin, I need the ability to edit stage details and (in a future version) add new stages.
+
+Platform Settings:
+
+As an admin, I want to be able to globally enable or disable the ICO.
+
+As an admin, I want to be able to set which ICO stage is currently active.
+
+Data Model
+The application must manage the following data structures. This data can be initially mocked for standalone operation.
+
+Stages: A collection of objects, each representing an ICO stage.
+
+id: Unique identifier (e.g., 'stage1')
+
+name: "Private Sale"
+
+tokenPrice: 0.05 (in USD)
+
+totalTokens: 5,000,000
+
+soldTokens: (number that updates)
+
+minPurchase: 500 (in USD)
+
+maxPurchase: 10,000 (in USD)
+
+Platform State: A single object for global settings.
+
+isIcoActive: boolean
+
+currentStageId: 'stage3'
+
+Participants: A collection of objects, indexed by wallet address.
+
+address: "0x..."
+
+tokenBalance: 50000
+
+Transactions: A list of transaction records.
+
+id: "0x..." (transaction hash)
+
+address: "0x..." (participant's address)
+
+amountUSD: 2500
+
+tokens: 50000
+
+stage: 'stage1'
+
+timestamp: ISO date string
+
+Technical & Visual Requirements
+UI/UX:
+
+The design should be modern, clean, and professional, using a dark/space theme.
+
+The layout must be fully responsive and work flawlessly on desktop, tablet, and mobile devices.
+
+Use clear iconography for navigation and actions.
+
+Incorporate smooth transitions and animations to enhance the user experience.
+
+Display data visualizations (e.g., pie charts, bar charts) for tokenomics and admin analytics.
+
+Backend & Logic:
+
+The application must handle all state management internally.
+
+The token purchase flow should be simulated:
+
+User clicks "Proceed to Payment."
+
+A transaction is initiated in the user's wallet (e.g., a near-zero value transfer to a random address to simulate gas fees and get a real transaction hash).
+
+Upon successful confirmation of this simulated transaction, the app's internal state (participant balance, tokens sold, etc.) is updated.
+
+Final Output:
+
+The entire application—including all logic, styling, and assets (like icons)—must be contained within a single HTML file.
+
+The application must not require any build steps, installations, or a separate server to run. It should be viewable by simply opening the HTML file in a browser.
